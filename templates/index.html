@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Moderation</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { margin: 20px auto; width: 50%; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        textarea { width: 100%; height: 100px; }
+        input[type="checkbox"] { margin-right: 5px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Message Moderation</h2>
+    <form method="POST">
+        <label for="message">Enter Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+
+        <label>Select Guidelines to Apply:</label><br>
+        <input type="checkbox" name="guidelines" value="spam"> Spam
+        <input type="checkbox" name="guidelines" value="hate_speech"> Hate Speech
+        <input type="checkbox" name="guidelines" value="personal_info"> Personal Information
+        <input type="checkbox" name="guidelines" value="relevance"> Relevance to Brand
+        <br><br>
+
+        <input type="submit" value="Check Message">
+    </form>
+
+    {% if result %}
+    <div class="result">{{ result }}</div>
+    {% endif %}
+</body>
+</html>
+
